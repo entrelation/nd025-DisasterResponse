@@ -37,11 +37,10 @@ It processes message data, trains a machine learning model, and provides a web i
 
 1. Clone the repository:
     
-    `cd <YOUR_REPOSITORY_NAME>`
+   `git clone https://github.com/entrelation/nd025-DisasterResponse.git`
+   `cd nd025-DisasterResponse`
 
-    `git clone https://github.com/entrelation/nd025-DisasterResponse.git`
-
-2. Install dependencies:
+3. Install dependencies:
 
     `pip install -r requirements.txt`
 
