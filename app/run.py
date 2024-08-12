@@ -14,7 +14,7 @@ from nltk.corpus import stopwords
 
 from flask import Flask
 from flask import render_template, request, jsonify
-from plotly.graph_objs import Bar, Scatter
+from plotly.graph_objs import Bar, Scatter, Pie
 import joblib
 from sqlalchemy import create_engine
 
@@ -125,32 +125,20 @@ def index():
         #Third graph
                 {
             'data': [
-                Scatter(
-                    x=words,
-                    y=frequencies,
-                    mode='markers',
-                    marker=dict(
-                        size=[f for f in frequencies],  # Scale the marker size for better visualization
-                        color=frequencies,                  # Use frequencies for marker color
-                        showscale=True,                      # Show color scale
-                        colorscale='Viridis',                # Specify a color scale
-                        sizemode='area',                     # Set size mode to area for better scaling
-                        sizeref=2.*max(frequencies)/(100.**2), # Adjust sizeref for scaling
-                    ),
-                    text=words,  # Hover text to display word
+                Pie(
+                labels=words,
+                values=frequencies,
+                hoverinfo='label+percent+value',  # Show label, percentage, and value on hover
+                textinfo='percent',               # Show percentage on the pie chart
+                textfont=dict(size=12),           # Font size for the text inside pie slices
                 )
             ],
 
             'layout': {
                 'title': 'Top 10 Words in Messages',
-                'yaxis': {
-                    'title': "Frequency"
-                },
-                'xaxis': {
-                    'title': "Word",
-                    'automargin': True
+                'height': 600,  # Set height for better view
+                'width': 800    # Set width for better view
                 }
-            }
         }
     ]
     
