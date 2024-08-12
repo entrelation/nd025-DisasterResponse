@@ -43,11 +43,11 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../DisasterResponse.db')
-df = pd.read_sql_table('Message', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('Message', con=engine)
 
 # load model
-model = joblib.load("../classifier.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -122,7 +122,7 @@ def index():
             }
         },
 
-        Third graph
+        #Third graph
                 {
             'data': [
                 Scatter(

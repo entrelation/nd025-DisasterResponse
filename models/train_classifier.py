@@ -5,6 +5,7 @@ nltk.download(['punkt', 'wordnet', 'stopwords'])
 
 import pandas as pd
 import numpy as np
+import re
 import pickle
 from sqlalchemy import create_engine
 from sklearn.model_selection import train_test_split

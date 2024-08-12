@@ -1,5 +1,6 @@
 import sys
 import pandas as pd
+import re
 from sqlalchemy import create_engine
 
 
@@ -79,7 +80,7 @@ def save_data(df, database_filepath):
     engine = create_engine(f'sqlite:///{database_filepath}')
     
     # Save the DataFrame to a SQL table
-    df.to_sql('a_table', engine, index=False, if_exists='replace')
+    df.to_sql('Message', engine, index=False, if_exists='replace')
 
 def main():
     if len(sys.argv) == 4:
