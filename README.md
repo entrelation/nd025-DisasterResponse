@@ -38,7 +38,10 @@ It processes message data, trains a machine learning model, and provides a web i
 1. Clone the repository:
     
    `git clone https://github.com/entrelation/nd025-DisasterResponse.git`
-   `cd nd025-DisasterResponse`
+
+2. Go to the project directory:
+   `
+   cd nd025-DisasterResponse`
 
 3. Install dependencies:
 
@@ -69,4 +72,4 @@ This command creates a new file in the `models/` folder:
 
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
+3. Go to http server shown in your Shell
