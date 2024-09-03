@@ -52,12 +52,18 @@ def clean_data(df):
         # Set each value to be the last character of the string and convert to numeric
         categories[column] = categories[column].astype(str).str[-1]
         categories[column] = pd.to_numeric(categories[column])
+        
+        # Convert the numeric value to a binary string
+        categories[column] = categories[column].apply(lambda x: format(x, 'b'))
     
     # Drop the original categories column from `df`
     df.drop(['categories'], inplace=True, axis=1)
     
     # Concatenate the original DataFrame with the new `categories` DataFrame
     df = pd.concat([df, categories], axis=1)
+    
+    # Drop the rows in 'related' category with different values than 0 or 1
+    df = df[df['related'].isin(['0','1'])]
     
     # Remove duplicates
     df = df.drop_duplicates()
