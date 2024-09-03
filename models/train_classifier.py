@@ -81,6 +81,36 @@ def build_model():
 
     return pipeline
 
+# Alternative function integrating GridSearchCV to find the best parameter for the model
+# It is not kept active in the submission to reduce the model training time
+
+# def build_model():
+#     """
+#     Build a machine learning pipeline with GridSearchCV for model parameters tuning.
+
+#     Returns:
+#         cv (GridSearchCV): A GridSearchCV object wrapping the pipeline.
+#     """
+#     pipeline = Pipeline([
+#         ('text_pipeline', Pipeline([
+#                 ('vect', CountVectorizer(tokenizer=tokenize)),
+#                 ('tfidf', TfidfTransformer())
+#             ])),
+#         ('clf', MultiOutputClassifier(RandomForestClassifier()))
+#     ])
+
+#     # Define parameters for GridSearchCV
+#     parameters = {
+#         'text_pipeline__vect__ngram_range': [(1, 1), (1, 2)],
+#         'clf__estimator__n_estimators': [50, 100],
+#         'clf__estimator__min_samples_split': [2, 4]
+#     }
+
+#     # Create GridSearchCV object
+#     cv = GridSearchCV(pipeline, param_grid=parameters, cv=3)
+
+#     return cv
+
 
 def evaluate_model(model, X_test, Y_test, category_names):
     """
