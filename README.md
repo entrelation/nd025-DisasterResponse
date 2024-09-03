@@ -1,8 +1,18 @@
 # Disaster Response Pipeline Project
 
+[ Introduction ](#intro)
+
+[ Project Structure ](#structure)
+
+[ Getting Started ](#start)
+
+
+<a name="intro"></a>
+## Introduction
 This project is a web application which purpose is to analyze disaster data from Appen (formerly Figure 8) to build a model for an API that classifies disaster messages. 
 It processes message data, trains a machine learning model, and provides a web interface for classifying new messages.
 
+<a name="structure"></a>
 ## Project Structure
 
 - `README.md`: this file
@@ -20,6 +30,7 @@ It processes message data, trains a machine learning model, and provides a web i
 - **models**: Contains the machine learning model and training script.
   - `train_classifier.py`: Script to train the classifier.
 
+<a name="start"></a>
 ## Getting Started
 
 ### Prerequisites
