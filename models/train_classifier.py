@@ -8,7 +8,7 @@ import numpy as np
 import re
 import pickle
 from sqlalchemy import create_engine
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
@@ -152,6 +152,9 @@ def main():
         
         print('Training model...')
         model.fit(X_train, Y_train)
+
+        # print the best parameters from GridSearch
+        # print('Best Parameters:', model.best_params_)
         
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
