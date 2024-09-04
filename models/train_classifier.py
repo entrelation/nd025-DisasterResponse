@@ -73,10 +73,10 @@ def build_model():
     """
     pipeline = Pipeline([
         ('text_pipeline', Pipeline([
-                ('vect', CountVectorizer(tokenizer=tokenize, ngram_range=(1,1))),
+                ('vect', CountVectorizer(tokenizer=tokenize, ngram_range=(1,2))),
                 ('tfidf', TfidfTransformer())
             ])),
-        ('clf', MultiOutputClassifier(RandomForestClassifier(n_estimators=50, min_samples_split=4)))
+        ('clf', MultiOutputClassifier(RandomForestClassifier(n_estimators=100, min_samples_split=2)))
     ])
 
     return pipeline
